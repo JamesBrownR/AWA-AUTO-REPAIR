@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWA AUTO REPAIR - Expert Auto Repair in Salt Lake City, UT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3a52;
+            --secondary: #2c5f7f;
+            --accent: #d4a257;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--light);
+        }
+
+        .top-bar {
+            background: var(--primary);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--accent);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-content {
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            padding: 1rem 1.5rem;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: #666;
+        }
+
+        .info-section {
+            background: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .info-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .info-card p, .info-card ul {
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-card li {
+            padding: 0.3rem 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .reviews-section {
+            background: var(--light);
+        }
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .review-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .stars {
+            color: var(--accent);
+        }
+
+        .review-body {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .show-more-btn {
+            display: block;
+            margin: 2rem auto 0;
+            padding: 1rem 3rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .show-more-btn:hover {
+            background: var(--secondary);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .contact-section {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary);
+        }
+
+        .contact-info-card {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent);
+        }
+
+        .contact-item p, .contact-item a {
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+        }
+
+        .payment-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--light);
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .payment-section h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .payment-note {
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .header-content h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav li {
+                padding: 0.8rem;
+            }
+
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .status-message {
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .status-message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .status-message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="tel:+18016919031"><i class="fas fa-phone"></i> (801) 691-9031</a>
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <h1>AWA AUTO REPAIR</h1>
+            <p>Expert Auto Repair Services in Salt Lake City, Utah</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#location">Location</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-oil-can"></i>
+                    <h3>Oil Changes</h3>
+                    <p>Regular maintenance to keep your engine running smoothly with quality oils and filters.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car-battery"></i>
+                    <h3>Battery Service</h3>
+                    <p>Complete battery testing, replacement, and electrical system diagnostics.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cog"></i>
+                    <h3>Brake Service</h3>
+                    <p>Comprehensive brake inspections, repairs, and replacements for your safety.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Engine Diagnostics</h3>
+                    <p>Advanced diagnostic equipment to identify and resolve engine issues quickly.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-car"></i>
+                    <h3>General Repairs</h3>
+                    <p>Full-service auto repair for all makes and models with expert technicians.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Preventive Maintenance</h3>
+                    <p>Scheduled maintenance services to extend the life of your vehicle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="info-section">
+        <div class="container">
+            <h2 class="section-title">About AWA AUTO REPAIR</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class="fas fa-user-tie"></i> Expert Service by Ali</h3>
+                    <p>AWA AUTO REPAIR is owned and operated by Ali, bringing years of automotive expertise and dedication to quality service. We treat every vehicle as if it were our own, ensuring the highest standards of workmanship on every job.</p>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-clock"></i> Business Hours</h3>
+                    <ul>
+                        <li><strong>Monday:</strong> 8:00 AM – 5:00 PM</li>
+                        <li><strong>Tuesday:</strong> 8:00 AM – 5:00 PM</li>
+                        <li><strong>Wednesday:</strong> 8:00 AM – 5:00 PM</li>
+                        <li><strong>Thursday:</strong> 8:00 AM – 5:00 PM</li>
+                        <li><strong>Friday:</strong> 8:00 AM – 5:00 PM</li>
+                        <li><strong>Saturday:</strong> 8:00 AM – 5:00 PM</li>
+                        <li><strong>Sunday:</strong> Closed</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-shield-alt"></i> Why Choose Us</h3>
+                    <p>Professional service with transparent pricing, honest diagnostics, and quality workmanship. We're committed to getting you back on the road safely and efficiently.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-section">
+        <div class="container">
+            <h2 class="section-title">Customer Reviews</h2>
+            <div id="reviewsContainer" class="reviews-container"></div>
+            <button id="showMoreBtn" class="show-more-btn hidden"></button>
+        </div>
+    </section>
+
+    <section id="location">
+        <div class="container">
+            <h2 class="section-title">Visit Us</h2>
+            <div class="info-card" style="max-width: 600px; margin: 0 auto 2rem;">
+                <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                <p>1462 S Redwood Rd, Salt Lake City, UT 84104</p>
+                <p style="margin-top: 1rem;"><a href="tel:+18016919031"><i class="fas fa-phone"></i> (801) 691-9031</a></p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1234567890123!2d-111.9421307!3d40.73836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8752f571418d7e13%3A0x3a77dfdced71ae76!2sAWA%20AUTO%20REPAIR!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <div id="formStatus"></div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="contact-info-card">
+                    <div class="contact-item">
+                        <h3><i class="fas fa-phone"></i> Phone</h3>
+                        <a href="tel:+18016919031">(801) 691-9031</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-map-marker-alt"></i> Address</h3>
+                        <p>1462 S Redwood Rd<br>Salt Lake City, UT 84104</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-clock"></i> Hours</h3>
+                        <p>Monday - Saturday: 8:00 AM - 5:00 PM<br>Sunday: Closed</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3><i class="fas fa-share-alt"></i> Follow Us</h3>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=61582096118613" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.google.com/maps/place/AWA+AUTO+REPAIR/@40.73836,-111.9421307,17z/data=!3m1!4b1!4m6!3m5!1s0x8752f571418d7e13:0x3a77dfdced71ae76!8m2!3d40.738356!4d-111.9395558!16s%2Fg%2F11xkp0xwcd?entry=ttu&g_ep=EgoyMDI1MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer"><i class="fab fa-google"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="payment-section">
+                <h3><i class="fas fa-credit-card"></i> Payment Options</h3>
+                <p>We accept all major credit cards, debit cards, and cash payments.</p>
+                <div class="payment-note">
+                    <p><strong>Square Integration Ready:</strong> Replace YOUR_LOCATION_ID in the code with your actual Square location ID to enable online payment processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 AWA AUTO REPAIR. All rights reserved.</p>
+            <p>1462 S Redwood Rd, Salt Lake City, UT 84104 | (801) 691-9031</p>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== SQUARE INTEGRATION ====================
+        // Replace YOUR_LOCATION_ID with your actual Square location ID
+        const SQUARE_LOCATION_ID = 'YOUR_LOCATION_ID';
+        
+        // Example Square integration (uncomment and configure when ready):
+        /*
+        async function initializeSquare() {
+            const payments = Square.payments(SQUARE_APP_ID, SQUARE_LOCATION_ID);
+            const card = await payments.card();
+            await card.attach('#card-container');
+        }
+        */
+
+        // ==================== REVIEWS DATA ====================
+        const reviews = [
+            { name: "Customer 1", rating: 5, body: "" },
+            { name: "Customer 2", rating: 5, body: "" },
+            { name: "Customer 3", rating: 5, body: "" },
+            { name: "Customer 4", rating: 5, body: "" },
+            { name: "Customer 5", rating: 5, body: "" }
+        ];
+
+        const REVIEWS_PER_PAGE = 6;
+        let currentlyShowing = 0;
+
+        function renderStars(rating) {
+            return '<span class="stars">' + '★'.repeat(rating) + '</span>';
+        }
+
+        function renderReviews() {
+            const container = document.getElementById('reviewsContainer');
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            
+            container.innerHTML = '';
+            
+            const reviewsToShow = reviews.slice(0, currentlyShowing);
+            reviewsToShow.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'review-card';
+                card.innerHTML = `
+                    <div class="review-header">
+                        <div class="reviewer-name">${review.name}</div>
+                        ${renderStars(review.rating)}
+                    </div>
+                    ${review.body ? `<div class="review-body">${review.body}</div>` : ''}
+                `;
+                container.appendChild(card);
+            });
+
+            const remaining = reviews.length - currentlyShowing;
+            if (remaining > 0) {
+                showMoreBtn.textContent = `Show ${Math.min(REVIEWS_PER_PAGE, remaining)} More (Total ${remaining})`;
+                showMoreBtn.classList.remove('hidden');
+            } else {
+                showMoreBtn.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('showMoreBtn').addEventListener('click', () => {
+            currentlyShowing = Math.min(currentlyShowing + REVIEWS_PER_PAGE, reviews.length);
+            renderReviews();
+        });
+
+        // Initialize reviews
+        currentlyShowing = Math.min(REVIEWS_PER_PAGE, reviews.length);
+        renderReviews();
+
+        // ==================== CONTACT FORM ====================
+        document.getElementById('contactForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formStatus = document.getElementById('formStatus');
+            const submitBtn = e.target.querySelector('.submit-btn');
+            const formData = new FormData(e.target);
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            try {
+                // Replace with your actual form submission endpoint
+                const response = await fetch('YOUR_FORM_ENDPOINT_HERE', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                // For demonstration, simulate success
+                formStatus.innerHTML = '<div class="status-message success">Thank you! Your message has been sent. We\'ll get back to you soon.</div>';
+                e.target.reset();
+                
+                setTimeout(() => {
+                    formStatus.innerHTML = '';
+                }, 5000);
+                
+            } catch (error) {
+                formStatus.innerHTML = '<div class="status-message error">Sorry, there was an error sending your message. Please call us directly at (801) 691-9031.</div>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+
+        // ==================== SMOOTH SCROLLING ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
